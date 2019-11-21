@@ -33,13 +33,18 @@ public class PlayerScr : MonoBehaviour
 
         }
 
-     /*   if (Input.GetMouseButtonDown(0)) 
+         void OnCollisionEnter(Collision collision)
         {
-            Instantiate(cube, new Vector3(0, 0, 0), Quaternion.identity);
+
         }
 
+        /*   if (Input.GetMouseButtonDown(0)) 
+         {
+             Instantiate(cube, new Vector3(0, 0, 0), Quaternion.identity);
+         }
 
-    */
+
+     */
 
 
 
