@@ -5,11 +5,11 @@ using UnityEngine;
 public class bulletScr : MonoBehaviour
 {
 
-    public GameObject player;
+   
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -18,8 +18,13 @@ public class bulletScr : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider bullet)
+    void OnCollisionEnter(Collision col)
     {
-        dest
+        if (col.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }
+
+
