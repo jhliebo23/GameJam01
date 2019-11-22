@@ -164,7 +164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &159162990
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2349,6 +2349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2039534556}
   - component: {fileID: 2039534557}
+  - component: {fileID: 2039534558}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -2424,6 +2425,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2039534558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039534555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b61fb02fe1af472d99fedb1c987f3f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2091835539
 GameObject:
   m_ObjectHideFlags: 0
