@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerScr : MonoBehaviour
 {
+
+    public GameObject cube;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -29,12 +33,16 @@ public class PlayerScr : MonoBehaviour
 
         }
 
+     /*   if (Input.GetMouseButtonDown(0)) 
+        {
+            Instantiate(cube, new Vector3(0, 0, 0), Quaternion.identity);
+        }
+
+
+    */
 
 
 
-
-
-
-        } 
     }
+}
 
