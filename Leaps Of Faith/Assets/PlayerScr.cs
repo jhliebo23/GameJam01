@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerScr : MonoBehaviour
 {
 
-    public GameObject cube;
+    public GameObject dagger;
+    public GameObject bullet;
+
+    int health = 3;
 
 
     // Start is called before the first frame update
@@ -33,16 +36,26 @@ public class PlayerScr : MonoBehaviour
 
         }
 
-     /*   if (Input.GetMouseButtonDown(0)) 
-        {
-            Instantiate(cube, new Vector3(0, 0, 0), Quaternion.identity);
-        }
+
+        
+            
+        /*   if (Input.GetMouseButtonDown(0)) 
+         {
+             Instantiate(cube, new Vector3(0, 0, 0), Quaternion.identity);
+         }
 
 
-    */
+     */
+}
 
-
-
+    void OnTriggerEnter(Collider bullet)
+    {
+        health--;
     }
+
+
+
+
+
 }
 
