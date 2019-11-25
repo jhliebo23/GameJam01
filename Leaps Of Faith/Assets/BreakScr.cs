@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class BreakScr : MonoBehaviour
 {
-    // Start is called before the first frame update
+    int health;
+
     void Start()
     {
-        
+        health = 30;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(health);
+
+        if (health < 1)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+
+
+        if (col.gameObject.tag == "dagger")
+        {
+            health--;
+
+        }
+
+
+
+
+
     }
 }
