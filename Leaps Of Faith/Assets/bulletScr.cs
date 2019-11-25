@@ -22,7 +22,7 @@ public class bulletScr : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.name == "Player")
         {
             Destroy(gameObject);
         }

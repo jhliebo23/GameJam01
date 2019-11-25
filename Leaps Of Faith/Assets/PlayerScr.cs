@@ -64,11 +64,7 @@ public class PlayerScr : MonoBehaviour
             canJump = true;
         }
 
-        void OnTriggerExit(Collider floor)
-        {
-            Debug.Log("can;t jump");
-            canJump = false;
-        }
+
 
 
 

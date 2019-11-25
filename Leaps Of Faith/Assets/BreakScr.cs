@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomingSce : MonoBehaviour
+public class BreakScr : MonoBehaviour
 {
-
-    public transform target;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +13,6 @@ public class HomingSce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, Time.deltaTime * 1);
-        Transform.LookAt(target);
+        
     }
-}
 }
