@@ -15,7 +15,7 @@ public class turretScr : MonoBehaviour
   
     void Start()
     {
-
+        time = 2;
     }
 
     // Update is called once per frame

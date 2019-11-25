@@ -5,7 +5,7 @@ using UnityEngine;
 public class bulletScr : MonoBehaviour
 {
 
-    public Transform target;
+  
 
 
     void Start()
@@ -16,7 +16,7 @@ public class bulletScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(target);
+      
         transform.Translate(0, 0, Time.deltaTime * -1);
     }
 
@@ -26,6 +26,13 @@ public class bulletScr : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       
+         if (col.gameObject.name == "Wallcatch")
+        {
+            Destroy(gameObject);
+        }
+
+
     }
 }
 

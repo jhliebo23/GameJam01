@@ -5,9 +5,7 @@ using UnityEngine;
 public class PlayerScr : MonoBehaviour
 {
     private bool canJump;
-    public GameObject target;
     public int moveSpeed = 8;
-    public Rigidbody m_Rigidbody;
     public int jumpHeight;
 
     public GameObject dagger;
@@ -32,7 +30,7 @@ public class PlayerScr : MonoBehaviour
 
 
         transform.Translate(10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
-        transform.Rotate(0, turnDirH * 150 * Time.deltaTime, 0);
+        transform.Rotate(0, turnDirH * 700 * Time.deltaTime, 0);
 
 
         if (canJump && Input.GetKey(KeyCode.Space))
@@ -40,31 +38,31 @@ public class PlayerScr : MonoBehaviour
             transform.position += (Vector3.up * jumpHeight * Time.deltaTime);
         }
 
-        if (health <= 0)
+        if (health < 0)
 
         {
             transform.Translate(999, 999, 999);
         }
 
-
+        Debug.Log(health);
 
     }
 
-    void OnTriggerEnter(Collider bullet)
+    void OnTriggerEnter(Collider col)
     {
 
 
-        if (target.gameObject.tag.Equals("bullet") == true)
+        if (col.gameObject.tag == "bullet")
         {
             health--;
+
         }
 
-        if (target.gameObject.tag.Equals("ground") == true)
+
+        if (col.gameObject.tag == "ground")
         {
-            Debug.Log("can jump");
             canJump = true;
         }
-
 
         void OnTriggerExit(Collider floor)
         {
