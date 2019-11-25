@@ -5,8 +5,8 @@ using UnityEngine;
 public class bulletScr : MonoBehaviour
 {
 
-  
-        
+    public Transform target;
+
 
     void Start()
     {
@@ -16,7 +16,8 @@ public class bulletScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, Time.deltaTime * 1);
+        transform.LookAt(target);
+        transform.Translate(0, 0, Time.deltaTime * -1);
     }
 
     void OnCollisionEnter(Collision col)

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerScr : MonoBehaviour
 {
+    private bool canJump;
+    public GameObject target;
+    public int moveSpeed = 8;
+    public Rigidbody m_Rigidbody;
+    public int jumpHeight;
 
     public GameObject dagger;
     public GameObject bullet;
@@ -26,36 +31,48 @@ public class PlayerScr : MonoBehaviour
         float turnDirH = Input.GetAxis("Mouse X");
 
 
-        transform.Translate( 10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
-        transform.Translate(10 * turnDirH * Time.deltaTime,0,0);
+        transform.Translate(10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
+        transform.Rotate(0, turnDirH * 150 * Time.deltaTime, 0);
 
-       if (Input.GetKeyDown("space"))
+
+        if (canJump && Input.GetKey(KeyCode.Space))
         {
+            transform.position += (Vector3.up * jumpHeight * Time.deltaTime);
+        }
 
-            transform.Translate(0,2,0);
+        if (health <= 0)
 
+        {
+            transform.Translate(999, 999, 999);
         }
 
 
-        
-            
-        /*   if (Input.GetMouseButtonDown(0)) 
-         {
-             Instantiate(cube, new Vector3(0, 0, 0), Quaternion.identity);
-         }
 
-
-     */
-}
+    }
 
     void OnTriggerEnter(Collider bullet)
     {
-        health--;
+
+
+        if (target.gameObject.tag.Equals("bullet") == true)
+        {
+            health--;
+        }
+
+        if (target.gameObject.tag.Equals("ground") == true)
+        {
+            Debug.Log("can jump");
+            canJump = true;
+        }
+
+
+        void OnTriggerExit(Collider floor)
+        {
+            Debug.Log("can;t jump");
+            canJump = false;
+        }
+
+
+
     }
-
-
-
-
-
 }
-
