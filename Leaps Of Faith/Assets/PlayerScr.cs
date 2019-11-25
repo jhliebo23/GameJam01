@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerScr : MonoBehaviour
 {
+    private bool canJump;
+    public int moveSpeed = 8;
+    public int jumpHeight;
 
     public GameObject dagger;
     public GameObject bullet;
@@ -26,36 +29,44 @@ public class PlayerScr : MonoBehaviour
         float turnDirH = Input.GetAxis("Mouse X");
 
 
-        transform.Translate( 10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
-        transform.Translate(10 * turnDirH * Time.deltaTime,0,0);
+        transform.Translate(10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
+        transform.Rotate(0, turnDirH * 700 * Time.deltaTime, 0);
 
-       if (Input.GetKeyDown("space"))
+
+        if (canJump && Input.GetKey(KeyCode.Space))
         {
+            transform.position += (Vector3.up * jumpHeight * Time.deltaTime);
+        }
 
-            transform.Translate(0,2,0);
+        if (health < 0)
+
+        {
+            transform.Translate(999, 999, 999);
+        }
+
+        Debug.Log(health);
+
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+
+
+        if (col.gameObject.tag == "bullet")
+        {
+            health--;
 
         }
 
 
-        
-            
-        /*   if (Input.GetMouseButtonDown(0)) 
-         {
-             Instantiate(cube, new Vector3(0, 0, 0), Quaternion.identity);
-         }
+        if (col.gameObject.tag == "ground")
+        {
+            canJump = true;
+        }
 
 
-     */
-}
 
-    void OnTriggerEnter(Collider bullet)
-    {
-        health--;
+
+
     }
-
-
-
-
-
 }
-
