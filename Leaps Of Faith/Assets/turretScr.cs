@@ -12,6 +12,7 @@ public class turretScr : MonoBehaviour
     public int xCord;
     public int yCord;
     public int zCord;
+    public int timeMax;
   
     void Start()
     {
@@ -26,7 +27,7 @@ public class turretScr : MonoBehaviour
          time += Time.deltaTime;
 
 
-         if (time > 4f)
+         if (time > timeMax)
 
          {
              Instantiate(prefab, new Vector3(xCord, yCord, zCord), Quaternion.identity);

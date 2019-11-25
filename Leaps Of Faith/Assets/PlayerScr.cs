@@ -27,21 +27,29 @@ public class PlayerScr : MonoBehaviour
         float moveDirH = Input.GetAxis("Horizontal");
 
         float turnDirH = Input.GetAxis("Mouse X");
+        float jumpAct = Input.GetAxis("jump");
 
 
         transform.Translate(10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
         transform.Rotate(0, turnDirH * 700 * Time.deltaTime, 0);
 
 
-        if (canJump && Input.GetKey(KeyCode.Space))
-        {
+        if (canJump && (jumpAct > 0)) 
+        { 
             transform.position += (Vector3.up * jumpHeight * Time.deltaTime);
+
+            Debug.Log("canJump and keydown");
         }
 
         if (health < 0)
 
         {
-            transform.Translate(999, 999, 999);
+
+            transform.position = new Vector3(-239, 84, -152);
+
+        
+
+            health = 50;
         }
 
         Debug.Log(health);
@@ -62,6 +70,10 @@ public class PlayerScr : MonoBehaviour
         if (col.gameObject.tag == "ground")
         {
             canJump = true;
+        }
+        else
+        {
+            canJump = false;
         }
 
 
