@@ -5,6 +5,7 @@ using UnityEngine;
 public class HomingScr : MonoBehaviour
 {
     public Transform target;
+    public float speed;
     void Start()
     {
 
@@ -13,7 +14,7 @@ public class HomingScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, Time.deltaTime * 2);
+        transform.Translate(0, 0, Time.deltaTime * speed);
         transform.LookAt(target);
     }
 

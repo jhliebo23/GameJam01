@@ -93,7 +93,7 @@ public class PlayerScr : MonoBehaviour
 
         if (col.gameObject.name == "Edge")
         {
-            SceneManager.LoadScene("Level2", LoadSceneMode.Additive); ;
+            SceneManager.LoadScene("Level2", LoadSceneMode.Single); ;
         }
 
 
