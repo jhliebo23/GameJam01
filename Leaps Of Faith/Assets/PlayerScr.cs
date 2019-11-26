@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScr : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerScr : MonoBehaviour
 
     public int sens;
 
-    int health = 3;
+    int health = 1;
 
 
     // Start is called before the first frame update
@@ -90,7 +91,10 @@ public class PlayerScr : MonoBehaviour
             Debug.Log("can't jump");
         }
 
-
+        if (col.gameObject.name == "Edge")
+        {
+            SceneManager.LoadScene("Level2", LoadSceneMode.Additive); ;
+        }
 
 
 
