@@ -12,7 +12,7 @@ public class turretScr : MonoBehaviour
     public int xCord;
     public int yCord;
     public int zCord;
-    public int timeMax;
+    public float timeMax;
   
     void Start()
     {

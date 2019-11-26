@@ -11,6 +11,8 @@ public class PlayerScr : MonoBehaviour
     public GameObject dagger;
     public GameObject bullet;
 
+    public int sens;
+
     int health = 3;
 
 
@@ -27,18 +29,25 @@ public class PlayerScr : MonoBehaviour
         float moveDirH = Input.GetAxis("Horizontal");
 
         float turnDirH = Input.GetAxis("Mouse X");
-        float jumpAct = Input.GetAxis("jump");
+        float turnDirV = Input.GetAxis("Mouse Y");
 
+        float jumpAct = Input.GetAxis("Jump");
+
+       
 
         transform.Translate(10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
-        transform.Rotate(0, turnDirH * 700 * Time.deltaTime, 0);
+        transform.Rotate(0, turnDirH * sens * Time.deltaTime, 0);
+        transform.Rotate(turnDirV * -1 * sens * Time.deltaTime, 0,0);
 
 
-        if (canJump && (jumpAct > 0)) 
+
+        Debug.Log(canJump);
+
+        if (canJump && (jumpAct == 1)) 
         { 
             transform.position += (Vector3.up * jumpHeight * Time.deltaTime);
 
-            Debug.Log("canJump and keydown");
+           
         }
 
         if (health < 0)
@@ -67,13 +76,18 @@ public class PlayerScr : MonoBehaviour
         }
 
 
-        if (col.gameObject.tag == "ground")
+        if (col.gameObject.name == "Floor")
         {
             canJump = true;
+
+            Debug.Log("touching");
+
+         
         }
         else
         {
             canJump = false;
+            Debug.Log("can't jump");
         }
 
 

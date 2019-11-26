@@ -5,7 +5,7 @@ using UnityEngine;
 public class bulletScr : MonoBehaviour
 {
 
-  
+    public int speed;
 
 
     void Start()
@@ -17,7 +17,7 @@ public class bulletScr : MonoBehaviour
     void Update()
     {
       
-        transform.Translate(0, 0, Time.deltaTime * -1);
+        transform.Translate(0, 0, Time.deltaTime * -1 * speed);
     }
 
     void OnCollisionEnter(Collision col)
