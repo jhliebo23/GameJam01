@@ -12,6 +12,8 @@ public class PlayerScr : MonoBehaviour
     public GameObject dagger;
     public GameObject bullet;
 
+    private Rigidbody rb;
+
     public int sens;
 
     //public Vector3 jump;
@@ -40,6 +42,14 @@ public class PlayerScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //jumping script
+        if (Input.GetKeyDown("space"))
+        {
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 350, ForceMode.Impulse);
+            Debug.Log("can jump");
+        }
+
+
         float moveDirV = Input.GetAxis("Vertical");
         float moveDirH = Input.GetAxis("Horizontal");
 
@@ -56,7 +66,7 @@ public class PlayerScr : MonoBehaviour
 
 
 
-        Debug.Log(canJump);
+        //Debug.Log(canJump);
 
         //if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         //{
