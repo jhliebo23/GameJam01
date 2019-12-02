@@ -63,7 +63,7 @@ public class PlayerScr : MonoBehaviour
         //    rb.AddForce(jump * jumpForce, ForceMode.Impulse);
         //    isGrounded = false;
         //    Debug.Log("CanJump");
-        }
+
 
         //transform.Translate(Vector3.up * Time.deltaTime * Input.GetAxis("Jump"), Space.World);
 
