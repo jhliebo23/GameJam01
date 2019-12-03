@@ -18,6 +18,8 @@ public class PlayerScr : MonoBehaviour
 
     public float RotateSpeed = 8;
 
+    private int Jump = 1;
+
     //public Vector3 jump;
     //public float jumpForce = 2.0f;
     //public bool isGrounded;
@@ -47,8 +49,11 @@ public class PlayerScr : MonoBehaviour
         //jumping script
         if (Input.GetKeyDown("space"))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * 350, ForceMode.Impulse);
-            Debug.Log("can jump");
+            if (Jump == 1)
+            {
+                GetComponent<Rigidbody>().AddForce(Vector3.up * 350, ForceMode.Impulse);
+                Debug.Log("can jump");
+            }
         }
 
 
@@ -117,7 +122,7 @@ public class PlayerScr : MonoBehaviour
 
             Debug.Log("touching");
 
-         
+
         }
         else
         {
@@ -131,6 +136,6 @@ public class PlayerScr : MonoBehaviour
         }
 
 
-
     }
 }
+
