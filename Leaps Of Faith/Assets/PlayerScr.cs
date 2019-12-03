@@ -16,6 +16,8 @@ public class PlayerScr : MonoBehaviour
 
     public int sens;
 
+    public float RotateSpeed = 8;
+
     //public Vector3 jump;
     //public float jumpForce = 2.0f;
     //public bool isGrounded;
@@ -58,13 +60,12 @@ public class PlayerScr : MonoBehaviour
 
         float jumpAct = Input.GetAxis("Jump");
 
-       
+        transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * RotateSpeed, 0);
+
 
         transform.Translate(10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
         transform.Rotate(0, turnDirH * sens * Time.deltaTime, 0);
         transform.Rotate(turnDirV * -1 * sens * Time.deltaTime, 0,0);
-
-
 
         //Debug.Log(canJump);
 

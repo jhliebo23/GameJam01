@@ -15,7 +15,7 @@ public class CameraFPScript : MonoBehaviour
     void Update()
     {
         //transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * sens, 0);
-        //transform.Rotate(Input.GetAxis("Mouse Y") * Time.deltaTime * sens, 0, 0);
+        transform.Rotate(Input.GetAxis("Mouse Y") * Time.deltaTime * sens, 0, 0);
 
         //float turnDirH = Input.GetAxis("Mouse X");
         //float turnDirV = Input.GetAxis("Mouse Y");
