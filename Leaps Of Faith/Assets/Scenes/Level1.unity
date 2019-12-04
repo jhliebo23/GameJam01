@@ -1643,11 +1643,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 320871065}
-  interpolationPeriod: 1
+  interpolationPeriod: 0.25
   xCord: -30
   yCord: 2
   zCord: 15
-  timeMax: 1
+  timeMax: 0.25
 --- !u!136 &677923824
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4462,6 +4462,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3311835362469732205, guid: 6c589d4bf784d45e2a2826111f3b7d6c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3311835363185618506, guid: 6c589d4bf784d45e2a2826111f3b7d6c,
         type: 3}
       propertyPath: dagger
@@ -4472,6 +4477,11 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 320871065}
+    - target: {fileID: 3311835363185618506, guid: 6c589d4bf784d45e2a2826111f3b7d6c,
+        type: 3}
+      propertyPath: RotateSpeed
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c589d4bf784d45e2a2826111f3b7d6c, type: 3}
 --- !u!1001 &6717263425505321446

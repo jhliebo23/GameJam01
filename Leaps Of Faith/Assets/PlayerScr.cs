@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScr : MonoBehaviour
 {
     private bool canJump;
-    public int moveSpeed = 8;
+    public int moveSpeed = 10;
     public int jumpHeight;
 
     public GameObject dagger;
@@ -14,11 +14,17 @@ public class PlayerScr : MonoBehaviour
 
     private Rigidbody rb;
 
-    public int sens;
+    int rageInt;
+
+    bool rageBool;
+
+    public Transform screenRed;
 
     public float RotateSpeed = 8;
 
     private int Jump = 1;
+
+    AudioSource audioData;
 
     //public Vector3 jump;
     //public float jumpForce = 2.0f;
@@ -29,22 +35,26 @@ public class PlayerScr : MonoBehaviour
     int health = 1;
 
 
-    // Start is called before the first frame update
+    /* -----------------------------------
+  *-----------------------------------*/
     void Start()
+    /* -----------------------------------
+ *-----------------------------------*/
     {
         Cursor.visible = false;
 
-        //rb = GetComponent<Rigidbody>();
-        //jump = new Vector3(0.0f, 2.0f, 0.0f);
+        transform.LookAt(screenRed);
+
+        rageInt = 0;
+        rageBool = false;
     }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    isGrounded = true;
-    //}
-
-    // Update is called once per frame
+    /* -----------------------------------
+ *-----------------------------------*/
     void Update()
+    /* -----------------------------------
+ *-----------------------------------*/
+    
     {
         //jumping script
         if (Input.GetKeyDown("space"))
@@ -55,6 +65,7 @@ public class PlayerScr : MonoBehaviour
                 Debug.Log("can jump");
             }
         }
+
 
 
         float moveDirV = Input.GetAxis("Vertical");
@@ -68,9 +79,9 @@ public class PlayerScr : MonoBehaviour
         transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * RotateSpeed, 0);
 
 
-        transform.Translate(10 * moveDirH * Time.deltaTime, 0, 10 * Time.deltaTime * moveDirV);
-        transform.Rotate(0, turnDirH * sens * Time.deltaTime, 0);
-        transform.Rotate(turnDirV * -1 * sens * Time.deltaTime, 0,0);
+        transform.Translate(moveSpeed * moveDirH * Time.deltaTime, 0, moveSpeed * Time.deltaTime * moveDirV);
+     /*   transform.Rotate(0, turnDirH * sens * Time.deltaTime, 0);
+        transform.Rotate(turnDirV * -1 * sens * Time.deltaTime, 0,0); */
 
         //Debug.Log(canJump);
 
@@ -103,9 +114,55 @@ public class PlayerScr : MonoBehaviour
 
         Debug.Log(health);
 
+
+
+        if (Input.GetKeyDown("q"))
+        {
+            rageInt = 1;
+            Debug.Log("Down");
+        }
+        else
+        {
+            rageInt = 0;
+            rageBool = false;
+        }
+
+
+        if (rageInt > 1)
+        {
+            rageBool = true;
+        }
+
+  
+   
+     if (rageBool = true)
+
+        {
+            moveSpeed = 20;
+
+            audioData = GetComponent<AudioSource>();
+            audioData.Play(0);
+        }
+
+
+
+        Debug.Log(rageBool + "   " + moveSpeed);
+
+
+
+
+
+
+
     }
 
-    void OnTriggerEnter(Collider col)
+ 
+     /* -----------------------------------
+      *-----------------------------------*/   
+       void OnTriggerEnter(Collider col)
+    /* -----------------------------------
+   *-----------------------------------*/
+
     {
 
 
