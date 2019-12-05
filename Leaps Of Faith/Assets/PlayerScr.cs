@@ -47,6 +47,8 @@ public class PlayerScr : MonoBehaviour
 
         rageInt = 1;
         rageBool = false;
+
+        rb = GetComponent<Rigidbody>();
     }
 
     /* -----------------------------------
@@ -59,11 +61,8 @@ public class PlayerScr : MonoBehaviour
         //jumping script
         if (Input.GetKeyDown("space"))
         {
-            if (Jump == 1)
-            {
                 GetComponent<Rigidbody>().AddForce(Vector3.up * 350, ForceMode.Impulse);
                 Debug.Log("can jump");
-            }
         }
 
 
@@ -80,6 +79,9 @@ public class PlayerScr : MonoBehaviour
 
 
         transform.Translate(moveSpeed * moveDirH * Time.deltaTime, 0, moveSpeed * Time.deltaTime * moveDirV);
+
+
+
      /*   transform.Rotate(0, turnDirH * sens * Time.deltaTime, 0);
         transform.Rotate(turnDirV * -1 * sens * Time.deltaTime, 0,0); */
 
@@ -181,5 +183,14 @@ public class PlayerScr : MonoBehaviour
 
 
     }
+
+    //private void FixedUpdate()
+    //{
+    //    if (Input.GetKeyDown("w"))
+    //    {
+    //        rb.AddForce(Vector3.forward * 100, ForceMode.VelocityChange);
+    //    }
+    //}
 }
+
 
