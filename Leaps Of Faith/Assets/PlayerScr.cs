@@ -45,7 +45,7 @@ public class PlayerScr : MonoBehaviour
 
         transform.LookAt(screenRed);
 
-        rageInt = 0;
+        rageInt = 1;
         rageBool = false;
     }
 
@@ -116,34 +116,21 @@ public class PlayerScr : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown("q"))
+       if (Input.GetKey("q"))
         {
-            rageInt = 1;
-            Debug.Log("Down");
+            moveSpeed = 20;
+          
         }
         else
         {
-            rageInt = 0;
-            rageBool = false;
-        }
-
-
-        if (rageInt > 1)
-        {
-            rageBool = true;
-        }
-
-  
-   
-     if (rageBool = true)
-
-        {
-            moveSpeed = 20;
-
+            moveSpeed = 8;
             audioData = GetComponent<AudioSource>();
             audioData.Play(0);
         }
 
+   
+    
+       
 
 
         Debug.Log(rageBool + "   " + moveSpeed);
