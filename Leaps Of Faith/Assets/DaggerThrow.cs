@@ -30,14 +30,14 @@ public class DaggerThrow : MonoBehaviour
         {
 
 
-            if (Input.GetMouseButtonDown(0))
+        /*    if (Input.GetMouseButtonDown(0))
             {
 
                 dagger.transform.position = teleportTarget.transform.position;
                
                 throwTIme = 0;
 
-            }
+            } */
         }
 
         if (time >= interpolationPeriod)

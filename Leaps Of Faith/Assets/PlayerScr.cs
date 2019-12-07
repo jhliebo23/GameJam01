@@ -18,13 +18,16 @@ public class PlayerScr : MonoBehaviour
 
     bool rageBool;
 
-    public Transform screenRed;
+
 
     public float RotateSpeed = 8;
 
     private int Jump = 1;
 
     AudioSource audioData;
+
+   public  GameObject rageUI;
+ 
 
     //public Vector3 jump;
     //public float jumpForce = 2.0f;
@@ -43,7 +46,6 @@ public class PlayerScr : MonoBehaviour
     {
         Cursor.visible = false;
 
-        transform.LookAt(screenRed);
 
         rageInt = 1;
         rageBool = false;
@@ -120,14 +122,16 @@ public class PlayerScr : MonoBehaviour
 
        if (Input.GetKey("q"))
         {
-            moveSpeed = 20;
-          
+            moveSpeed = 40;
+            rageUI.SetActive(true);
+
         }
         else
         {
             moveSpeed = 8;
             audioData = GetComponent<AudioSource>();
             audioData.Play(0);
+            rageUI.SetActive(false);
         }
 
    
