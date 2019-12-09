@@ -18,13 +18,13 @@ public class PlayerScr : MonoBehaviour
 
     bool rageBool;
 
-
+    public GameObject lava;
 
     public float RotateSpeed = 8;
 
     private int Jump = 1;
 
-    AudioSource audioData;
+    //AudioSource audioData;
 
    public  GameObject rageUI;
  
@@ -116,7 +116,7 @@ public class PlayerScr : MonoBehaviour
             health = 50;
         }
 
-        Debug.Log(health);
+        //Debug.Log(health);
 
 
 
@@ -129,9 +129,9 @@ public class PlayerScr : MonoBehaviour
         else
         {
             moveSpeed = 8;
-            audioData = GetComponent<AudioSource>();
-            audioData.Play(0);
-            rageUI.SetActive(false);
+            //audioData = GetComponent<AudioSource>();
+            //audioData.Play(0);
+            //rageUI.SetActive(false);
         }
 
    
@@ -157,7 +157,6 @@ public class PlayerScr : MonoBehaviour
    *-----------------------------------*/
 
     {
-
 
         if (col.gameObject.tag == "bullet")
         {
@@ -195,6 +194,13 @@ public class PlayerScr : MonoBehaviour
     //        rb.AddForce(Vector3.forward * 100, ForceMode.VelocityChange);
     //    }
     //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Finish")
+        {
+            Debug.Log("Heyo");
+        }
+    }
 }
 
 
