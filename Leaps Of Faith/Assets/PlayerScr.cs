@@ -22,17 +22,27 @@ public class PlayerScr : MonoBehaviour
 
     public float RotateSpeed = 8;
 
-    private int Jump = 1;
+    //private int Jump = 1;
 
     //AudioSource audioData;
 
    public  GameObject rageUI;
- 
+
 
     //public Vector3 jump;
     //public float jumpForce = 2.0f;
     //public bool isGrounded;
     //Rigidbody rb;
+
+
+    CharacterController characterController;
+
+    public float speed = 6.0f;
+    public float jumpSpeed = 8.0f;
+    public float gravity = 20.0f;
+
+    private Vector3 moveDirection = Vector3.zero;
+
 
 
     int health = 1;
@@ -50,7 +60,9 @@ public class PlayerScr : MonoBehaviour
         rageInt = 1;
         rageBool = false;
 
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
+
+        //rb = GetComponent<Rigidbody>();
     }
 
     /* -----------------------------------
@@ -60,27 +72,49 @@ public class PlayerScr : MonoBehaviour
  *-----------------------------------*/
     
     {
-        //jumping script
-        if (Input.GetKeyDown("space"))
+
+        if (characterController.isGrounded)
         {
-                GetComponent<Rigidbody>().AddForce(Vector3.up * 350, ForceMode.Impulse);
-                Debug.Log("can jump");
+            // We are grounded, so recalculate
+            // move direction directly from axes
+
+            moveDirection = new Vector3(Input.GetAxis("Vertical"), 0.0f, Input.GetAxis("Horizontal"));
+            moveDirection *= speed;
+
+            if (Input.GetButton("Jump"))
+            {
+                moveDirection.y = jumpSpeed;
+            }
         }
 
+        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
+        // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
+        // as an acceleration (ms^-2)
+        moveDirection.y -= gravity * Time.deltaTime;
+
+        // Move the controller
+        characterController.Move(moveDirection * Time.deltaTime);
+        //jumping script
+        //if (Input.GetKeyDown("space"))
+        //{
+        //        GetComponent<Rigidbody>().AddForce(Vector3.up * 350, ForceMode.Impulse);
+        //        Debug.Log("can jump");
+        //}
 
 
-        float moveDirV = Input.GetAxis("Vertical");
-        float moveDirH = Input.GetAxis("Horizontal");
 
-        float turnDirH = Input.GetAxis("Mouse X");
-        float turnDirV = Input.GetAxis("Mouse Y");
+        //float moveDirV = Input.GetAxis("Vertical");
+        //float moveDirH = Input.GetAxis("Horizontal");
 
-        float jumpAct = Input.GetAxis("Jump");
+        //float turnDirH = Input.GetAxis("Mouse X");
+        //float turnDirV = Input.GetAxis("Mouse Y");
+
+        //float jumpAct = Input.GetAxis("Jump");
 
         transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * RotateSpeed, 0);
 
 
-        transform.Translate(moveSpeed * moveDirH * Time.deltaTime, 0, moveSpeed * Time.deltaTime * moveDirV);
+        //transform.Translate(moveSpeed * moveDirH * Time.deltaTime, 0, moveSpeed * Time.deltaTime * moveDirV);
 
 
 
@@ -165,14 +199,14 @@ public class PlayerScr : MonoBehaviour
         }
 
 
-        if (col.gameObject.name == "Floor")
-        {
-            canJump = true;
+        //if (col.gameObject.name == "Floor")
+        //{
+        //    canJump = true;
 
-            Debug.Log("touching");
+        //    Debug.Log("touching");
 
 
-        }
+        //}
         else
         {
             canJump = false;
@@ -201,6 +235,7 @@ public class PlayerScr : MonoBehaviour
             Debug.Log("Heyo");
         }
     }
+
 }
 
 
