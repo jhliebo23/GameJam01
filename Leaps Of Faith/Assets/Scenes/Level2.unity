@@ -619,6 +619,11 @@ PrefabInstance:
       propertyPath: dagger
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1176733073812768094, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 1176733073812768095, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3016,6 +3021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: zCord
       value: -16.43202
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382523575751741765, guid: 65af6ac95b7db469d88c39f4185d63cb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65af6ac95b7db469d88c39f4185d63cb, type: 3}

@@ -41,9 +41,7 @@ public class PlayerScr : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
 
-    private Vector3 moveDirection = Vector3.zero;
-
-
+    private Vector3 moveDirection = Vector3.forward;
 
     int health = 1;
 
@@ -72,6 +70,8 @@ public class PlayerScr : MonoBehaviour
  *-----------------------------------*/
     
     {
+        Vector3 moveValues = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        characterController.Move(moveValues);
 
         if (characterController.isGrounded)
         {
@@ -80,11 +80,20 @@ public class PlayerScr : MonoBehaviour
 
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             moveDirection *= speed;
-
+            
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
             }
+
+        
+            //transform.Translate(Input.GetAxis ("Vertical") * moveSpeed * Time.deltaTime, 0.0f, 0.0f);
+            
+
+            //float moveDirV = Input.GetAxis("Vertical");
+            //float moveDirH = Input.GetAxis("Horizontal");
+            //transform.Translate(moveSpeed * moveDirH * Time.deltaTime, 0, moveSpeed * Time.deltaTime * moveDirV);
+
         }
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
@@ -162,7 +171,7 @@ public class PlayerScr : MonoBehaviour
         }
         else
         {
-            moveSpeed = 8;
+            moveSpeed = 75;
             //audioData = GetComponent<AudioSource>();
             //audioData.Play(0);
             //rageUI.SetActive(false);
@@ -173,7 +182,7 @@ public class PlayerScr : MonoBehaviour
        
 
 
-        Debug.Log(rageBool + "   " + moveSpeed);
+        //Debug.Log(rageBool + "   " + moveSpeed);
 
 
 
