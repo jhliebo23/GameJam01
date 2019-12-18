@@ -14,6 +14,8 @@ public class PlayerScr : MonoBehaviour
 
     bool rageBool;
 
+    int courageVal;
+
     int health = 1;
 
     //AudioSource audioData;
@@ -102,9 +104,9 @@ public class PlayerScr : MonoBehaviour
             health--;
         }
 
-        if (col.gameObject.name == "Edge")
+        if (col.gameObject.tag == "courage")
         {
-            SceneManager.LoadScene("Level2", LoadSceneMode.Single); ;
+            courageVal++;
         }
     }
 
