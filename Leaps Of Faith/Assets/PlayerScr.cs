@@ -130,7 +130,7 @@ public class PlayerScr : MonoBehaviour
         {
             moveSpeed = 8;
             audioData = GetComponent<AudioSource>();
-            audioData.Play(0);
+
             rageUI.SetActive(false);
         }
 
