@@ -8,13 +8,11 @@ public class PlayerScr : MonoBehaviour
     public GameObject dagger;
     public GameObject bullet;
 
-    public float moveSpeed = 10f;
-
     int rageInt;
 
     bool rageBool;
 
-    int courageVal;
+    float courageVal = 0f;
 
     int health = 1;
 
@@ -47,6 +45,7 @@ public class PlayerScr : MonoBehaviour
 
     void Update()
     {
+        //start of movement script ---------------------------------------------------------
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
@@ -69,6 +68,7 @@ public class PlayerScr : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+        //end of movement script -----------------------------------------------------------
 
         if (health < 0)
         {
@@ -77,21 +77,17 @@ public class PlayerScr : MonoBehaviour
             health = 50;
         }
 
-       if (Input.GetKey("q"))
+       if (Input.GetKey("q") && courageVal == 1)
         {
-            moveSpeed = 40;
+            speed = 20f;
             rageUI.SetActive(true);
+            jumpHeight = 5f;
         }
         else
         {
-
-            moveSpeed = 8;
-
-
+            speed = 10f;
+            jumpHeight = 3f;
             rageUI.SetActive(false);
-
-            moveSpeed = 75;
-
         }
 
         //Debug.Log(rageBool + "   " + moveSpeed);
