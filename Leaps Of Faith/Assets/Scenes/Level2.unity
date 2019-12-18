@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 90171697}
   - component: {fileID: 90171696}
   - component: {fileID: 90171695}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 97422515}
   - component: {fileID: 97422514}
   - component: {fileID: 97422513}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 102366699}
   - component: {fileID: 102366698}
   - component: {fileID: 102366697}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,6 +594,16 @@ PrefabInstance:
       propertyPath: sens
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 1176733072465654905, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+        type: 3}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 449624451}
+    - target: {fileID: 1176733072465654905, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 1176733073812768091, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
         type: 3}
       propertyPath: m_Name
@@ -623,6 +633,31 @@ PrefabInstance:
         type: 3}
       propertyPath: moveSpeed
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176733073812768094, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 449624446}
+    - target: {fileID: 1176733073812768094, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176733073812768094, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1830836735}
+    - target: {fileID: 1176733073812768094, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+        type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176733073812768094, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+        type: 3}
+      propertyPath: gravity
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 1176733073812768095, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
         type: 3}
@@ -679,7 +714,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1176733073812768090, guid: 0890f27e81ebf4d3fb44408b9cb39d15, type: 3}
+    - {fileID: 1176733073812768093, guid: 0890f27e81ebf4d3fb44408b9cb39d15, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0890f27e81ebf4d3fb44408b9cb39d15, type: 3}
 --- !u!1001 &318040610
 PrefabInstance:
@@ -762,6 +799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallThrow (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
@@ -866,7 +908,7 @@ GameObject:
   - component: {fileID: 359330656}
   - component: {fileID: 359330655}
   - component: {fileID: 359330654}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1205,6 +1247,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!143 &449624446 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 4623066848790237809, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+    type: 3}
+  m_PrefabInstance: {fileID: 214169447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &449624451 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1176733073812768095, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+    type: 3}
+  m_PrefabInstance: {fileID: 214169447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &472481230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1292,6 +1346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndOfParkour
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!1 &559807206
@@ -1306,7 +1365,7 @@ GameObject:
   - component: {fileID: 559807210}
   - component: {fileID: 559807209}
   - component: {fileID: 559807208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1457,7 @@ GameObject:
   - component: {fileID: 655734271}
   - component: {fileID: 655734270}
   - component: {fileID: 655734269}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1565,6 +1624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallThrow (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!1001 &716983659
@@ -1649,6 +1713,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platforming
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!1 &741023994
@@ -1663,7 +1732,7 @@ GameObject:
   - component: {fileID: 741023997}
   - component: {fileID: 741023996}
   - component: {fileID: 741023995}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1836,6 +1905,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramp
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!4 &839172769 stripped
@@ -1856,7 +1930,7 @@ GameObject:
   - component: {fileID: 1118501402}
   - component: {fileID: 1118501401}
   - component: {fileID: 1118501400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2023,6 +2097,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallThrow (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!1 &1239130537
@@ -2037,7 +2116,7 @@ GameObject:
   - component: {fileID: 1239130541}
   - component: {fileID: 1239130540}
   - component: {fileID: 1239130539}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,7 +2208,7 @@ GameObject:
   - component: {fileID: 1311239832}
   - component: {fileID: 1311239831}
   - component: {fileID: 1311239830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2221,7 +2300,7 @@ GameObject:
   - component: {fileID: 1412484984}
   - component: {fileID: 1412484983}
   - component: {fileID: 1412484982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2313,7 +2392,7 @@ GameObject:
   - component: {fileID: 1478595547}
   - component: {fileID: 1478595546}
   - component: {fileID: 1478595545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2480,6 +2559,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallThrow (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!1001 &1661388158
@@ -2564,6 +2648,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallThrow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!1 &1679578601
@@ -2578,7 +2667,7 @@ GameObject:
   - component: {fileID: 1679578605}
   - component: {fileID: 1679578604}
   - component: {fileID: 1679578603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2745,6 +2834,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallThrow (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!1001 &1817866014
@@ -2834,8 +2928,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallThrow (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
+--- !u!4 &1830836735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7512667195027024628, guid: 0890f27e81ebf4d3fb44408b9cb39d15,
+    type: 3}
+  m_PrefabInstance: {fileID: 214169447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1871542642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1627601573496083760, guid: 97cd9d82b457a4a73b2f831dce304636,
@@ -2854,7 +2959,7 @@ GameObject:
   - component: {fileID: 1894875605}
   - component: {fileID: 1894875604}
   - component: {fileID: 1894875603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3116,6 +3221,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallThrow (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1627601573496083764, guid: 97cd9d82b457a4a73b2f831dce304636,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cd9d82b457a4a73b2f831dce304636, type: 3}
 --- !u!1 &2015634241
@@ -3130,7 +3240,7 @@ GameObject:
   - component: {fileID: 2015634245}
   - component: {fileID: 2015634244}
   - component: {fileID: 2015634243}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3222,7 +3332,7 @@ GameObject:
   - component: {fileID: 2072280853}
   - component: {fileID: 2072280852}
   - component: {fileID: 2072280851}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3314,7 +3424,7 @@ GameObject:
   - component: {fileID: 2127002650}
   - component: {fileID: 2127002649}
   - component: {fileID: 2127002648}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
