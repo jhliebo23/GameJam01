@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
 public class CourageScr : MonoBehaviour
 {
+AudioSource audioData;
 
 
 
@@ -13,7 +17,8 @@ public class CourageScr : MonoBehaviour
         {
             Destroy(gameObject);
 
-
+            audioData = GetComponent<AudioSource>();
+            audioData.Play(1);
 
 
 

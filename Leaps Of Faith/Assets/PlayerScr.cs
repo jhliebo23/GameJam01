@@ -8,6 +8,8 @@ public class PlayerScr : MonoBehaviour
     public GameObject dagger;
     public GameObject bullet;
 
+    AudioSource audioData;
+
     public float moveSpeed = 10f;
 
     int rageInt;
@@ -107,7 +109,14 @@ public class PlayerScr : MonoBehaviour
         if (col.gameObject.tag == "courage")
         {
             courageVal++;
+            audioData = GetComponent<AudioSource>();
+            audioData.Play(0);
+
         }
+    
+    
+    
+    
     }
 
 }
