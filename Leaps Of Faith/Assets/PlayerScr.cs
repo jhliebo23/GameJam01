@@ -10,11 +10,13 @@ public class PlayerScr : MonoBehaviour
 
     AudioSource audioData;
 
+    public float moveSpeed = 10f;
+
     int rageInt;
 
     bool rageBool;
 
-    float courageVal = 0f;
+    int courageVal;
 
     int health = 1;
 
@@ -47,7 +49,6 @@ public class PlayerScr : MonoBehaviour
 
     void Update()
     {
-        //start of movement script ---------------------------------------------------------
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
@@ -70,7 +71,6 @@ public class PlayerScr : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-        //end of movement script -----------------------------------------------------------
 
         if (health < 0)
         {
@@ -79,17 +79,21 @@ public class PlayerScr : MonoBehaviour
             health = 50;
         }
 
-       if (Input.GetKey("q") && courageVal == 1)
+       if (Input.GetKey("q"))
         {
-            speed = 20f;
+            moveSpeed = 40;
             rageUI.SetActive(true);
-            jumpHeight = 5f;
         }
         else
         {
-            speed = 10f;
-            jumpHeight = 3f;
+
+            moveSpeed = 8;
+
+
             rageUI.SetActive(false);
+
+            moveSpeed = 75;
+
         }
 
         //Debug.Log(rageBool + "   " + moveSpeed);
