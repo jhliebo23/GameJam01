@@ -9,9 +9,9 @@ public class turretScr : MonoBehaviour
   
    private float time = 0.0f;
     public float interpolationPeriod = 2f;
-    public int xCord;
-    public int yCord;
-    public int zCord;
+    public float xCord;
+    public float yCord;
+    public float zCord;
     public float timeMax;
   
     void Start()

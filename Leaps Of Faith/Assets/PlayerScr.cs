@@ -5,196 +5,109 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScr : MonoBehaviour
 {
-    private bool canJump;
-    public int moveSpeed = 10;
-    public int jumpHeight;
-
     public GameObject dagger;
     public GameObject bullet;
 
-    private Rigidbody rb;
+    public float moveSpeed = 10f;
 
     int rageInt;
 
     bool rageBool;
 
-
-
-    public float RotateSpeed = 8;
-
-    private int Jump = 1;
-
-    AudioSource audioData;
-
-   public  GameObject rageUI;
- 
-
-    //public Vector3 jump;
-    //public float jumpForce = 2.0f;
-    //public bool isGrounded;
-    //Rigidbody rb;
-
-
     int health = 1;
 
+    //AudioSource audioData;
 
-    /* -----------------------------------
-  *-----------------------------------*/
+    public  GameObject rageUI;
+
+    public CharacterController controller;
+
+    public float speed = 10f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 3f;
+
+    Vector3 velocity;
+
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+
+    bool isGrounded;
+
     void Start()
-    /* -----------------------------------
- *-----------------------------------*/
     {
         Cursor.visible = false;
 
-
         rageInt = 1;
         rageBool = false;
-
-        rb = GetComponent<Rigidbody>();
     }
 
-    /* -----------------------------------
- *-----------------------------------*/
+
     void Update()
-    /* -----------------------------------
- *-----------------------------------*/
-    
     {
-        //jumping script
-        if (Input.GetKeyDown("space"))
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if(isGrounded && velocity.y < 0)
         {
-                GetComponent<Rigidbody>().AddForce(Vector3.up * 350, ForceMode.Impulse);
-                Debug.Log("can jump");
+            velocity.y = -7f;
         }
 
+        if(Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
 
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        float moveDirV = Input.GetAxis("Vertical");
-        float moveDirH = Input.GetAxis("Horizontal");
+        Vector3 move = transform.right * x + transform.forward * z;
 
-        float turnDirH = Input.GetAxis("Mouse X");
-        float turnDirV = Input.GetAxis("Mouse Y");
+        controller.Move(move * speed * Time.deltaTime);
 
-        float jumpAct = Input.GetAxis("Jump");
+        velocity.y += gravity * Time.deltaTime;
 
-        transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * RotateSpeed, 0);
-
-
-        transform.Translate(moveSpeed * moveDirH * Time.deltaTime, 0, moveSpeed * Time.deltaTime * moveDirV);
-
-
-
-     /*   transform.Rotate(0, turnDirH * sens * Time.deltaTime, 0);
-        transform.Rotate(turnDirV * -1 * sens * Time.deltaTime, 0,0); */
-
-        //Debug.Log(canJump);
-
-        //if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        //{
-        //    rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        //    isGrounded = false;
-        //    Debug.Log("CanJump");
-
-
-        //transform.Translate(Vector3.up * Time.deltaTime * Input.GetAxis("Jump"), Space.World);
-
-        //if (canJump && (jumpAct == 1)) 
-        //{ 
-        //    transform.position += (Vector3.up * jumpHeight * Time.deltaTime);
-        //    Debug.Log("CanJump");
-           
-        //}
+        controller.Move(velocity * Time.deltaTime);
 
         if (health < 0)
-
         {
-
             transform.position = new Vector3(-239, 84, -152);
-
-        
 
             health = 50;
         }
-
-        Debug.Log(health);
-
-
 
        if (Input.GetKey("q"))
         {
             moveSpeed = 40;
             rageUI.SetActive(true);
-
         }
         else
         {
+
             moveSpeed = 8;
-            audioData = GetComponent<AudioSource>();
+
 
             rageUI.SetActive(false);
+
+            moveSpeed = 75;
+
         }
 
-   
-    
-       
+        //Debug.Log(rageBool + "   " + moveSpeed);
 
-
-        Debug.Log(rageBool + "   " + moveSpeed);
-
-
-
-
-
-
-
-    }
-
- 
-     /* -----------------------------------
-      *-----------------------------------*/   
+    }   
        void OnTriggerEnter(Collider col)
-    /* -----------------------------------
-   *-----------------------------------*/
-
     {
-
-
         if (col.gameObject.tag == "bullet")
         {
             health--;
-
-        }
-
-
-        if (col.gameObject.name == "Floor")
-        {
-            canJump = true;
-
-            Debug.Log("touching");
-
-
-        }
-        else
-        {
-            canJump = false;
-            Debug.Log("can't jump");
         }
 
         if (col.gameObject.name == "Edge")
         {
             SceneManager.LoadScene("Level2", LoadSceneMode.Single); ;
         }
-
-
     }
 
-    //private void FixedUpdate()
-    //{
-    //    if (Input.GetKeyDown("w"))
-    //    {
-    //        rb.AddForce(Vector3.forward * 100, ForceMode.VelocityChange);
-    //    }
-    //}
 }
 
 

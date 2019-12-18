@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class CameraFPScript : MonoBehaviour
 {
-    public int sens;
+    public float mouseSensitivity = 100f;
+
+    public Transform playerBody;
+
+    float xRotation = 0f;
 
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.Rotate(0, Input.GetAxis("Mouse X") * Time.deltaTime * sens, 0);
-        transform.Rotate(Input.GetAxis("Mouse Y") * Time.deltaTime * sens, 0, 0);
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        //float turnDirH = Input.GetAxis("Mouse X");
-        //float turnDirV = Input.GetAxis("Mouse Y");
+        xRotation += mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        //transform.Rotate(0, turnDirH * sens * Time.deltaTime, 0);
-        //transform.Rotate(turnDirV * -1 * sens * Time.deltaTime, 0, 0);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 }
